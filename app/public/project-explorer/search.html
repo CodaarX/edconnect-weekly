@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search</title>
+</head>
+<body>
+    <header>
+        <h1>Project Explorer</h1>
+        <h2>One Stop Database For Academic Porjects</h2>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="search.html">Projects</a></li>
+            <li><a href="login.html"></a>Login</li>
+            <li><a href="register.html">Register</a></li>
+            <li><a href="createproject.html">Submit</a></li>
+        </ul>
+    </nav>
+    <main>
+       <form>
+           <h2>Search Results</h2>
+           <input name = "searchTerm" type="text" placeholder = "ProjectName, Authors", Abstract, Tags>
+           <label for="searchTerm">Search By</label>
+           <select name="searchTerm">
+               <option value="Name">Name</option>
+               <option value="Abstract">Abstract</option>
+               <option value="Authors">Authors</option>
+               <option value="Tags">Tags</option>
+           </select>
+           <input type = "submit" value = "search"/>
+       </form>
+       <section>
+           <h2>Search Result</h2>
+           <h3>Project 1</h3>
+           <ul>
+               <li>Name: Project 1</li>
+               <li>Description: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae, repellat?</li>
+               <li>Program: Computer Science</li>
+               <li>Author: John Doe</li>
+               <li>Tags: #Asphyxia, #GSW</li>
+               <li>Year: 2018</li>
+           </ul>
+       </section>
+    </main> 
+</body>
+</html>
