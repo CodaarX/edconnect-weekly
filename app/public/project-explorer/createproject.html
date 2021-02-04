@@ -1,33 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SProject Explorer App</title>
-</head>
-<body>
+<html>
+  <head>
+    <title>Project Explorer App</title>
+  </head>
+  <body>
     <header>
-        <h1>Project Explorer</h1>
-        <h2>One Stop Database For Academic Porjects</h2>
+      <h1>Project Explorer</h1>
+      <h2>One Stop Database For Academic Projects</h2>
     </header>
     <nav>
-            <a href="index.html">Home</a>
-            <a href="search.html">Projects</a>
-            <a href="login.html">Login</a>
-            <a href="register.html">Register</a>
+      <a href="index.html">Home</a>
+      <a href="search.html">Projects</a>
+      <a href="login.html">Login</a>
+      <a href="register.html">Register</a>
     </nav>
     <main>
-       <form name = "submitProject">
-           <label for="name">Project Name: </label><br />
-           <input name = "name" type="text"><br /><br />
-           <label for = "abstract">Project Abstract: </label><br />
-           <textarea name="abstract" id="" cols="30" rows="5"></textarea><br /><br />
-           <label for="authors">Authors: </label><br />
-           <input name = "authors" type="text""><br /><br />
-           <label for="tags">Tag(s): </label><br />
-           <input name = "tags" type="text""><br /><br />
-           <input type="submit" />
-       </form>
-    </main> 
-</body>
+      <h2>Submit Project</h2>
+      <!-- 
+          The <br /> tags are used temporily to achieve a vertical layout i.e to the make
+          the label appear on top of the inputs rather than on the same line i.e horizontally.
+          This will be fixed later with CSS.
+       -->
+      <form name="submitProject">
+        <label for="name">Project Name:</label><br />
+        <input type="text" name="name" /><br /><br />
+        <label for="abstract">Project Abstract:</label><br />
+        <textarea name="abstract"></textarea><br /><br />
+        <label for="authors">Authors:</label><br />
+        <input type="text" name="authors" /><br /><br />
+        <label>Tag(s):</label><br />
+        <input type="text" name="tags" /><br /><br />
+        <input type="submit" />
+      </form>
+    </main>
+    <footer></footer>
+  </body>
 </html>
