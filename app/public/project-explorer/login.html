@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Project Explorer App</title>
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+  </head>
+  <body>
+    <header id = "header" class = "navbar bg-primary text-white text-decoration-none">
+      <div id = "nav-right" class = "d-flex justify-items-space-between align-items-center">
+         <h1 id = "header-title">Project Explorer</h1>
+         <form id = "form" class="form-inline" name = "searchForm">
+           <input class = "form-control" type="text" name="text" placeholder="Search Projects">
+            <input class  = "btn btn-outline-light" type="button" value="Submit">
+            <a href="#">submit</a>
+         </form>   
+      </div>
+      <nav class = "nav text-white">
+        <a href="register.html">Sign Up</a>
+        <a href="login.html">Login</a>
+      </nav>
+    </header>
+    <main id = "containerlogin" class = "container">
+      <div class = "mx-auto w-75">
+        <form name="login" class = "form-group">
+          <h1>Login</h1>
+          <label class = "form-label">Email address:</label>
+          <input class = "form-control" placeholder = "Email address" type="email" name="email" /><br /><br />
+          <label class = "form-label">Password:</label>
+          <input class = "form-control" placeholder="Password" type="password" name="password" /><br /><br />
+          <input class = "btn btn-primary" type="button" name="login" value="login"/>
+        </form>
+      </div>
+      <footer id = "footer" class = "bg-light"> <span id = "footer-span" class = "text-muted"> Project Explorer &#169; 2020 &middot; &VeryThinSpace;</span> <strong> Edconnect </strong> </footer>
+    </main>
+  </body>
+</html>
