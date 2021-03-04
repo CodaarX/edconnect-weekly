@@ -8,7 +8,11 @@ class DataModel {
     }
 
     getById(id) {
-
+        this.data.forEach((obj) => {
+            if(obj.id === id){
+                return obj;
+            }     
+        })
     }
 
     save(obj) {
@@ -20,11 +24,21 @@ class DataModel {
     }
 
     update(obj, id) {
-
+        this.data.forEach((item) => {
+            let result = item.id === id? true : false;
+            return result     
+        })
     }
 
     delete(id) {
-
+        this.data.forEach((item) => {
+            if(item.id === id){
+                data.splice(item.id)
+                return true;
+            } else {
+                return false;
+            }
+        }) 
     }
 
     // this method will be overriden in the sub classes
