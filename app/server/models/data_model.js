@@ -25,15 +25,18 @@ class DataModel {
 
     update(obj, id) {
         this.data.forEach((item) => {
-            let result = item.id === id? true : false;
-            return result     
+            if (item.id == id) {
+                return true
+            } else {
+                return false
+            }
         })
     }
 
     delete(id) {
         this.data.forEach((item) => {
             if(item.id === id){
-                data.splice(item.id)
+                data.splice(data.indexOf(item.id), 1)
                 return true;
             } else {
                 return false;
