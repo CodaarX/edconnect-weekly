@@ -49,25 +49,28 @@ class Users extends DataModel {
     }
 
     validate(obj) {
-        // ensure no value for key is empaty
- 
-        this.data.forEach(person => {
-            if((person.mail === obj.email) || (person.matricNumber === obj.matricNumber) || (obj.password.length < 7)) {
-                return false;
-            } else {
-                Object.keys(obj).forEach(key => {
-                    if(key === "" ){
-                        return false;
-                    } else {
-                        return true;
-                    }
-                })        
+        let count = 0
+        let empty = 0
+        // ensure no value for key is empty
+        Object.keys(obj).forEach(key => {
+            if(key === ""){
+                empty += 1;
             }
+        }) 
 
-            })
+        this.data.forEach(person => {
+        if (person.email === obj.email || person.matricNumber === obj.matricNumber || person.password.length < 7){
+            count += 1;
         }
+        })  
+        
+    if (empty > 1 || count > 1 ){
+        return false;
+    } else {
+        return true;
     }
-
+}         
+}
 
 
 // Do not worry about the below for now; It is included so that we can test your code
