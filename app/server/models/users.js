@@ -64,7 +64,7 @@ class Users extends DataModel {
         }
         })  
         
-    if (empty > 1 || count > 1 ){
+    if (empty > 0 || count > 1 ){
         return false;
     } else {
         return true;
