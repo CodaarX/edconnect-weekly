@@ -50,6 +50,7 @@ class Users extends DataModel {
 
     validate(obj) {
         let count = 0
+        let pcount = 0
         let empty = 0
         // ensure no value for key is empty
         Object.keys(obj).forEach(key => {
@@ -59,7 +60,7 @@ class Users extends DataModel {
         }) 
 
         this.data.forEach(person => {
-        if (person.email === obj.email || person.matricNumber === obj.matricNumber || person.password.length < 7){
+        if (person.email === obj.email || person.matricNumber === obj.matricNumber || obj.password.length < 7){
             count += 1;
         }
         })  

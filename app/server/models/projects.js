@@ -14,20 +14,19 @@ class Project {
 class Projects extends DataModel {
     validate(obj) {
         let ctrue = 0
-        let cfalse = 0
-        if((isArray(obj.data.authors)) && (isArray(obj.data.tags))){
+        if((Array.isArray(obj.data.authors)) && (Array.isArray(obj.data.tags))){
             Object.keys(obj).forEach(key => {
-                if(!(key === "")){
+                if(key == ""){
                     ctrue += 1;
-                } else {
-                    cfalse += 1;
-                }
-            })         
+                } 
+            })    
+
             if (ctrue > 0){
                 return false
-            }   else if (cfalse > 0) {
+            }  else{
                 return true
             }
+
         }   else {
                 return false;
         }
