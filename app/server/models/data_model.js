@@ -19,8 +19,9 @@ class DataModel {
         if (this.validate(obj)) {
             this.data.push(obj);
             return true;
+        } else{
+            return false;
         }
-        return false;
     }
 
     update(obj, id) {
@@ -36,7 +37,7 @@ class DataModel {
     delete(id) {
         this.data.forEach((item) => {
             if(item.id === id){
-                data.splice(data.indexOf(item.id), 1)
+                this.data.splice(this.data.indexOf(item.id), 1)
                 return true;
             } else {
                 return false;
