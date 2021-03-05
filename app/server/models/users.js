@@ -48,19 +48,58 @@ class Users extends DataModel {
         })
     }
 
-    validate(obj) {
-        this.data.forEach(person => {
-            for(key in person){
-                if  ((person[key] == "") || (person.email == obj.email) || 
-                    (person.matricNumber == obj.matricNumber) || (obj.password.length < 7)){
+    validate(obj){
+        let fvaluen = 0
+        let fvaluey = 0
+        // check if obj is first added user
+        if (this.data.length == 0){
+            // check the properties of the first added and ensure password is long
+            Object.keys(obj).forEach(key => {
+                if (obj[key] == "" || obj[key] == "undefined" || obj.password.length < 7){
+                    fvaluen++;
+                }
+            })       
+
+            if(fvaluen > 0){
+                return false
+            } else {
+                return true
+            }       
+        }
+
+        // if a user already exist
+        if (this.data.length > 0){
+            // check the properties of the currently added and ensure password is long
+                Object.keys(obj).forEach(key => {
+                    if (obj[key] == "" || obj[key] == "undefined" || obj.password.length < 7){
+                        fvaluey++;
+                    }  
+                    
+                    if(fvaluey > 0){
+                        return false
+                    } else {
+                        // loop through already added users and check for duplicate emails and matric numbers using unique id.                        
+                        this.data.forEach(person => {            
+                            if(((person.email == obj.email) && (person.id != obj.id)) || 
+                            ((person.matricNumber == obj.matricNumber) && (person.id != obj.id))){
+                                fvaluey++
+                            } 
+                        })  
+                    }     
+                })
+
+                if(fvaluey > 0){
                     return false
                 } else {
-                    return true;
+                    return true
                 }
-            }       
-        })     
-    }
+    
+            }    
+
+           
+        }
 }
+
 // Do not worry about the below for now; It is included so that we can test your code
 // We will cover module exports in later parts of this course
 module.exports = {

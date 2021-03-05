@@ -13,26 +13,19 @@ class Project {
 
 class Projects extends DataModel {
     validate(obj) {
-        let ctrue = 0
-        if((Array.isArray(obj.data.authors)) && (Array.isArray(obj.data.tags))){
-            Object.keys(obj).forEach(key => {
-                if(key == ""){
-                    ctrue += 1;
-                } 
-            })    
-
-            if (ctrue > 0){
-                return false
-            }  else{
-                return true
+        for(key in obj){
+            if (obj[key] == "" || obj[key] == null){
+                return false;
             }
 
-        }   else {
-                return false;
+            else if ((Array.isArray(obj.data.authors)) && (Array.isArray(obj.data.tags))){
+                return true;            
+            }   else {
+                    return false;
+                }
+            }
         }
-    }
 }
-
 
 // Do not worry about the below for now; It is included so that we can test your code
 // We will cover module exports in later parts of this course
