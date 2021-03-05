@@ -11,43 +11,73 @@ class User {
         this.program = program;
         this.graduationYear = graduationYear;
     }
-
+    // getFullName() - returns a combination of the user’s first name and last name. e.g getFullName() will return “Bola Solade” if firstname is Bola and lastname is Solade
     getFullName() {
         return `${this.firstname} ${this.lastname}`
     }
 }
 
 class Users extends DataModel {
+    //     authenticate(email, password) - Checks if provided email and password combination is correct
+    // This should return true if the email and password combination is valid and false otherwise
     authenticate(email, password) {
+        let found = ""
         this.data.forEach((user) => {
             if (user.email === email && user.password === password) {
-                return true;
-            } else {
-                return false;
+                found = "true";
             }    
         })
-    }
 
+        if (found == "true"){
+            return true
+        }   else {
+            return false
+        }
+    }
+    
+    // getByEmail(email) - Returns user with specified email address
+    // This should return the User object with the specified email address if such a user is found
+    // This should return null if no user with the specified email address is found
+    
     getByEmail(email) {
+        let found = ""
         this.data.forEach((user) => {
             if (user.email === email) {
-                return user;
-            } else {
-                return null;
+                found = user;
             }    
         })
+
+        if(found == ""){
+            return null
+        }   else {
+            return found
+        }
     }
 
+    // getByMatricNumber(matricNumber) - Returns user with specified matric number
+    // This should return the User object with the specified matric number if such a user is found
+    // This should return null if no user with the specified matric number is found
     getByMatricNumber(matricNumber) {
+        let found = ""
         this.data.forEach((user) => {
             if (user.matricNumber === matricNumber) {
-                return user;
-            } else {
-                return null;
-            }    
+                found = user;
+            }   
         })
+
+        if(found == ""){
+            return null
+        }   else {
+            return found
+        }
     }
 
+    //     validate(obj)  - This method will do the following validations :
+    // Validate that the none of the provided properties are empty
+    // Validate that no user in the data array already has the specified email address
+    // Validate that no user in the data array already has the specified matric number
+    // Validate that the password is at least 7 characters in length
+    // The method should return true if all of the tests pass and false otherwise
     validate(obj){
         let fvaluen = 0
         let fvaluey = 0
